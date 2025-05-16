@@ -1,0 +1,40 @@
+use unab
+
+db.empleados.insertMany([
+  { nombre: "María López", edad: 34, ciudad: "San Salvador", correo: "maria.lopez@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Carlos Gómez", edad: 41, ciudad: "Santa Ana", correo: "carlos.gomez@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "Ana Ramírez", edad: 29, ciudad: "San Miguel", correo: "ana.ramirez@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Luis Torres", edad: 37, ciudad: "Soyapango", correo: "luis.torres@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Carmen Pérez", edad: 33, ciudad: "Mejicanos", correo: "carmen.perez@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "José Morales", edad: 45, ciudad: "Apopa", correo: "jose.morales@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Gloria Castillo", edad: 28, ciudad: "Santa Tecla", correo: "gloria.castillo@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Ricardo Hernández", edad: 39, ciudad: "Ilopango", correo: "ricardo.hernandez@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "Jessica Díaz", edad: 30, ciudad: "Ahuachapán", correo: "jessica.diaz@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Diego Cruz", edad: 35, ciudad: "La Libertad", correo: "diego.cruz@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Patricia Molina", edad: 42, ciudad: "Zacatecoluca", correo: "patricia.molina@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "Javier Reyes", edad: 31, ciudad: "Chalatenango", correo: "javier.reyes@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Daniela Ayala", edad: 27, ciudad: "Usulután", correo: "daniela.ayala@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Fernando Carrillo", edad: 38, ciudad: "San Vicente", correo: "fernando.carrillo@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "Claudia Rivas", edad: 36, ciudad: "Cojutepeque", correo: "claudia.rivas@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Roberto Méndez", edad: 43, ciudad: "La Unión", correo: "roberto.mendez@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Lorena Figueroa", edad: 32, ciudad: "Sonsonate", correo: "lorena.figueroa@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" },
+  { nombre: "Andrés Bonilla", edad: 29, ciudad: "Sensuntepeque", correo: "andres.bonilla@unab.edu.sv", cargo: "Coordinador de Carrera", departamento: "Administración Académica" },
+  { nombre: "Silvia Guardado", edad: 26, ciudad: "Metapán", correo: "silvia.guardado@unab.edu.sv", cargo: "Docente", departamento: "Educación" },
+  { nombre: "Miguel Ponce", edad: 40, ciudad: "Jiquilisco", correo: "miguel.ponce@unab.edu.sv", cargo: "Contabilidad", departamento: "Finanzas" }
+])
+
+
+//Índice simple en el campo ciudad
+db.empleados.createIndex({ ciudad: 1 })
+
+//Índice compuesto en ciudad y edad 
+db.empleados.createIndex({ ciudad: 1, edad: 1 })
+
+//Índice único en el campo correo
+db.empleados.createIndex({ correo: 1 }, { unique: true })
+
+//Índice de texto en el campo cargo
+db.empleados.createIndex({ cargo: "text" })
+
+//Verificamos los índices creados
+db.empleados.getIndexes()
